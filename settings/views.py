@@ -1,12 +1,17 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
 # Create your views here.
 def index(request):
-    num = 10
-    num2 = 10
-    result = num + num2
-    return HttpResponse(f"Результат {result}")
+    return render(request, "index.html")
 
 def news(request):
-    return HttpResponse("Нет новостей")
+    text = """Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum"""
+    return HttpResponse(text)
+
+def contact(request):
+    contact = [
+        "номер телефона: +99612341234",
+        "локация: мырзаалы аматова 1Б"
+    ]
+    return HttpResponse(f"Наши контакты:{contact}")
+
